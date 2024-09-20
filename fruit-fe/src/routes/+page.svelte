@@ -8,27 +8,28 @@
     }
     async function create(){
         const res = await fetch("http://localhost:4000/api/fruits",{
-            "method":"POST",
-            "headers":{"Content-Type": "application/json"},
-            "body":JSON.stringify({name: fruitName, color: fruitColor})
-        })
-        load()
+            method:"POST",
+            headers:{"Content-Type": "application/json"},
+            body:JSON.stringify({name: fruitName, color: fruitColor})
+        });
+        load();
     }
     async function remove(){
-        const res = await fetch("http://localhost:4000/api/fruits/${selectedId}",{
-            "method":"DELETE",
-            "headers":{"Content-Type": "application/json"},
-            "body":JSON.stringify({name: fruitName, color: fruitColor})
-        })
-        load()
+        const res = await fetch(`http://localhost:4000/api/fruits/${selectedId}`,{
+            method:"DELETE",
+            headers:{"Content-Type": "application/json"},
+            body:JSON.stringify({name: fruitName, color: fruitColor})
+        });
+        load();
+        selectedId = 0;
     }
     async function update(){
-        const res = await fetch("http://localhost:4000/api/fruits/${selectedId}",{
-            "method":"PATCH",
-            "headers":{"Content-Type": "application/json"},
-            "body":JSON.stringify({name: fruitName, color: fruitColor})
-        })
-        load()
+        const res = await fetch(`http://localhost:4000/api/fruits/${selectedId}`,{
+            method:"PATCH",
+            headers:{"Content-Type": "application/json"},
+            body:JSON.stringify({name: fruitName, color: fruitColor})
+        });
+        load();
     }
     function selectFruit(id:number){
         let f = fruits.find((e)=>e.id===id)
