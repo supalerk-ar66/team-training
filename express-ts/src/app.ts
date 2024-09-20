@@ -30,4 +30,4 @@ app.get('/hello',(req,res)=>{
 app.get('/',(req,res)=>{
     res.send("Hello Express")
 })
-app.listen(port, () => console.log(`Application is running on port ${port}`))
+app.listen(port, () => console.log(`Application is running on port http://localhost:${port}`))

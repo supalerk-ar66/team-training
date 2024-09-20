@@ -37,10 +37,9 @@ fruitRoute.delete('/:id', (req, res) => {
     }else{
         res.sendStatus(404)
     }
-        
-    
+   
 });
-fruitRoute.patch('/:id', (req, res) => {
+fruitRoute.patch('/:id', (req, res) => { //อัพเดท
     const id = Number(req.params.id)
     const afruit = _fruit.find((e)=>e.id===id)
     console.log(afruit)
