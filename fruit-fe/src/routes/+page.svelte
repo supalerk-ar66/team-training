@@ -42,12 +42,12 @@
             debug = id+" not found "+id
         }
     }
-    onMount(async () => {load()});
+    onMount(async () => {load()});  
     </script>
     <input type="text" name="name" bind:value={fruitName} placeholder="name">
     <input type="text" name="color" bind:value={fruitColor} placeholder="color">
-    <button on:click={create} disabled={!fruitName||!fruitColor}>Create</button> 
-    <button on:click={update} disabled={!fruitName||!fruitColor||selectedId===0}>Update</button>
+    <button on:click={create} disabled={!fruitName||!fruitColor}>Create</button>   
+    <button on:click={update} disabled={!fruitName||!fruitColor||selectedId===0}>Update</button> 
     <button on:click={remove} disabled={selectedId===0}>Delete</button>
     <ul>
     {#each fruits as fruit}
@@ -58,3 +58,4 @@
     {/each}
     </ul>
     <div>{debug}</div>
+    
