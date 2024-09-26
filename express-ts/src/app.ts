@@ -1,20 +1,15 @@
-import "dotenv/config" 
+// src/app.ts
+import "dotenv/config"
+import cors from "cors" 
 import express, { Express, Request, Response,NextFunction } from 'express'
-import cors from "cors"  // import เข้ามา
 import {myapiRoute} from './lib/myapi'
 import {fruitRoute} from "./lib/fruit"
-
+import Router from "./routes"
+import swaggerUi from "swagger-ui-express"
 const app: Express = express()
-const port = Number(process.env.PORT) || 3000
-let apikey="1234567890"
-
-app.use(cors()) //ต้องมีตันนี้ก่อน import cors from "cors" 
-app.use(express.json())
-app.use(express.raw())
-app.use(express.urlencoded({extended:true}))
-app.use('/api/myapi',myapiRoute)
-app.use('/api/fruits',fruitRoute)
-
+const port = Number(process.env.PORT) || 80
+/*
+let apikey="123456789"
 app.use((req:Request,res:Response,next:NextFunction)=>{
   console.log("Middleware")
   if(req.headers.apikey!==apikey ){
@@ -22,12 +17,27 @@ app.use((req:Request,res:Response,next:NextFunction)=>{
   }
   next()
 })
+*/
+app.use(cors())
+app.use(express.json())
+app.use(express.raw())
+app.use(express.urlencoded({extended:true}))
+app.use(express.static('static'))
+app.use('/api/myapi',myapiRoute)
+app.use('/api/fruits',fruitRoute)
+app.use(Router)
+/** hello */
+app.use(
+  "/swagger",
+  swaggerUi.serve,
+  swaggerUi.setup(undefined, {
+    swaggerOptions: {
+      url: "/swagger.json",
+    },
+  })
+);
+// app.get('*',(req,res,next)=>{
+//   res.sendFile(`${process.cwd()}/static/index.html`)
+// })
 
-app.get('/hello',(req,res)=>{
-    
-    res.send("Hello 2")
-})
-app.get('/',(req,res)=>{
-    res.send("Hello Express")
-})
-app.listen(port, () => console.log(`Application is running on port http://localhost:${port}`))
+app.listen(port, () => console.log(`Application is running on port ${port}`))
