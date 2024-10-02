@@ -8,13 +8,13 @@
     "build": "tsc",
     "dev": "nodemon src/app.ts",
     "swagger": "tsoa spec",
+    "routes": "tsoa spec-and-routes",
     "docs": "typedoc",
     "doc-spec": "cd spec && pandoc DFD_01.md DFD_02.md -f gfm --reference-doc=DFD-reference.docx --data-dir=. -o ../dist/DFD.docx"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -31,5 +31,6 @@
     "nodemon": "^3.1.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.2"
-  }
+  },
+  "description": ""
 }

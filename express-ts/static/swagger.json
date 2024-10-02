@@ -10,12 +10,17 @@
 		"securitySchemes": {}
 	},
 	"info": {
-		"title": "express-ts",
-		"version": "1.0.0",
+		"title": "TSOA Demo",
+		"version": "1.1.0",
+		"description": "TSOA demo by Oom",
 		"license": {
-			"name": "ISC"
+			"name": "Frappet Opensource"
 		},
-		"contact": {}
+		"contact": {
+			"name": "Sorawit Bholsithi",
+			"email": "sorawit@frappet.com",
+			"url": "https://www.chamomind.com"
+		}
 	},
 	"paths": {
 		"/hello": {
