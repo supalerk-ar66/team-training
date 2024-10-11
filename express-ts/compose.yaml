@@ -1,0 +1,5 @@
+services:
+  demo:
+    image: myappboss:latest
+    ports:
+        - 4001:80

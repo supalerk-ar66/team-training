@@ -10,6 +10,7 @@
     "swagger": "tsoa spec",
     "routes": "tsoa spec-and-routes",
     "docs": "typedoc",
+    "build:docker": "npm run build && docker build -t myappboss .",
     "doc-spec": "cd spec && pandoc DFD_01.md DFD_02.md -f gfm --reference-doc=DFD-reference.docx --data-dir=. -o ../dist/DFD.docx"
   },
   "keywords": [],
